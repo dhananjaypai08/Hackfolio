@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>User</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <figure>
+            <blockquote class="blockquote">
+              <p><strong>HackFolio</strong></p>
+              <a href="http://127.0.0.1:8000/" class="btn btn-primary">Home</a>
+            </blockquote>
+            <figcaption class="blockquote-footer" style="color: white;">
+              One stop for all your hackathons <cite title="Source Title">Hackfolio</cite>
+            </figcaption>
+          </figure>
+      </nav>
+      
+      <div>
+        <p>Connect: <a href="https://www.linkedin.com/in/dhananjay-pai/" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">LinkedIn</a> </p>
+      </div>
+      <div class="tab-content" id="nav-tabContent">
+
+        <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">NAME: {{user.name}}</h5>
+              <p class="card-text">EMAIL: {{user.email}}</p>
+            </div>
+          </div>
+
+        <p class="card-text">Hackathons added by User({{user.id}})</p>
+        <br>
+        {% for data in hackathons %}
+        <div class="card mb-3">
+            <img src="{{data.hackathon_img}}" class="card-img-top" alt="...">
+
+            <div class="card-body">
+              <h5 class="card-title">{{data.title}}</h5>
+              <p class="card-text">{{data.description}}</p>
+              <a href="http://127.0.0.1:8000/hackathons/{{data.id}}/" class="btn btn-primary">More info</a>
+            </div>
+          </div>
+        {% endfor %}
+    </div>
+    <style>
+      button, a, p, h5 {
+        font-family: Georgia, serif;
+        color: white;
+      }
+      body {
+        background-image: url("https://www.wallpapertip.com/wmimgs/82-825008_high-resolution-background-image-for-website.jpg");
+        
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  </body>
+</html>
